@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tools/object_measurement.dart';
 
 import 'object_count_up.dart';
 
@@ -63,6 +64,29 @@ class MyHomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(1.0),
                     child: ListTile(
                       leading: const Icon(Icons.analytics_outlined),
+                      title: const Text("Object Measurement"),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ObjectMeasurement()),
+                        );
+                      },
+                    )),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.lightGreenAccent,
+                  border: Border.all(color: Colors.black, width: 3.0),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Padding(
+                    padding: const EdgeInsets.all(1.0),
+                    child: ListTile(
+                      leading: const Icon(Icons.analytics_outlined),
                       title: const Text("Object Count Up"),
                       onTap: () {
                         Navigator.push(
@@ -71,6 +95,29 @@ class MyHomePage extends StatelessWidget {
                               builder: (context) => const ObjectCountUp()),
                         );
                       },
+                    )),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.lightGreenAccent,
+                  border: Border.all(color: Colors.black, width: 3.0),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: const Padding(
+                    padding: EdgeInsets.all(1.0),
+                    child: ListTile(
+                      leading: Icon(Icons.analytics_outlined),
+                      title: Text("Now Developping..."),
+                      // onTap: () {
+                      //   Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => const ObjectCountUp()),
+                      //   );
+                      // },
                     )),
               ),
             )
