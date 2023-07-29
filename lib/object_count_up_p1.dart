@@ -57,6 +57,7 @@ class _ObjectCountUpState extends State<ObjectCountUp> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final double width = size.width;
     if (!widget.controller.value.isInitialized) {
       return Container();
     }
@@ -66,16 +67,23 @@ class _ObjectCountUpState extends State<ObjectCountUp> {
             title: const Text("Object Count Up")),
         body: ListView(
           children: <Widget>[
-            SizedBox(
-                width: size.width,
-                //height: size.height / 4,
-                child: Transform.scale(
-                    scale: 1.0,
-                    child: AspectRatio(
-                      aspectRatio: widget.controller.value.aspectRatio,
-                      child: CameraPreview(
-                          widget.controller), // use the passed controller
-                    ))),
+            Container(
+              width: width,
+              height: width, // to create square
+              child: ClipRect(
+                child: OverflowBox(
+                  alignment: Alignment.center,
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    child: Container(
+                      width: width,
+                      height: width * widget.controller.value.aspectRatio,
+                      child: CameraPreview(widget.controller),
+                    ),
+                  ),
+                ),
+              ),
+            ),
             const Text("Take picture objects you want to count up",
                 style: TextStyle(
                     fontSize: 20,
